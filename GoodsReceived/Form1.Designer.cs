@@ -62,10 +62,9 @@
 			this.Products.ReadOnly = true;
 			this.Products.RowHeadersWidth = 51;
 			this.Products.RowTemplate.Height = 24;
-			this.Products.Size = new System.Drawing.Size(741, 192);
+			this.Products.Size = new System.Drawing.Size(741, 209);
 			this.Products.TabIndex = 0;
-			this.Products.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-			this.Products.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellValueChanged);
+			this.Products.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.Products_RowsAdded);
 			// 
 			// ProductID
 			// 
@@ -114,7 +113,6 @@
 			this.ProductIdInput.Name = "ProductIdInput";
 			this.ProductIdInput.Size = new System.Drawing.Size(242, 22);
 			this.ProductIdInput.TabIndex = 4;
-			this.ProductIdInput.TextChanged += new System.EventHandler(this.ProductIdInput_TextChanged);
 			// 
 			// label3
 			// 
@@ -143,7 +141,6 @@
 			this.ProductNameInput.Name = "ProductNameInput";
 			this.ProductNameInput.Size = new System.Drawing.Size(242, 22);
 			this.ProductNameInput.TabIndex = 7;
-			this.ProductNameInput.TextChanged += new System.EventHandler(this.ProductNameInput_TextChanged);
 			// 
 			// AddBtn
 			// 
@@ -183,12 +180,13 @@
 			// 
 			// AddReceiptBtn
 			// 
-			this.AddReceiptBtn.Location = new System.Drawing.Point(138, 444);
+			this.AddReceiptBtn.Location = new System.Drawing.Point(138, 434);
 			this.AddReceiptBtn.Name = "AddReceiptBtn";
 			this.AddReceiptBtn.Size = new System.Drawing.Size(113, 38);
 			this.AddReceiptBtn.TabIndex = 12;
 			this.AddReceiptBtn.Text = "Add Receipt";
 			this.AddReceiptBtn.UseVisualStyleBackColor = true;
+			this.AddReceiptBtn.Click += new System.EventHandler(this.AddReceiptBtn_Click);
 			// 
 			// label1
 			// 
@@ -198,7 +196,6 @@
 			this.label1.Size = new System.Drawing.Size(104, 16);
 			this.label1.TabIndex = 13;
 			this.label1.Text = "Product Quantity";
-			this.label1.Click += new System.EventHandler(this.label1_Click);
 			// 
 			// ProductQuantityInput
 			// 
@@ -209,7 +206,7 @@
 			// 
 			// ResetAllBtn
 			// 
-			this.ResetAllBtn.Location = new System.Drawing.Point(274, 444);
+			this.ResetAllBtn.Location = new System.Drawing.Point(274, 434);
 			this.ResetAllBtn.Name = "ResetAllBtn";
 			this.ResetAllBtn.Size = new System.Drawing.Size(106, 38);
 			this.ResetAllBtn.TabIndex = 15;
@@ -221,7 +218,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(1192, 628);
+			this.ClientSize = new System.Drawing.Size(1192, 525);
 			this.Controls.Add(this.ResetAllBtn);
 			this.Controls.Add(this.ProductQuantityInput);
 			this.Controls.Add(this.label1);
