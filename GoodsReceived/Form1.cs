@@ -20,40 +20,47 @@ namespace GoodsReceived
 
 		private void AddBtn_Click(object sender, EventArgs e)
 		{
-			CheckValidationProductInput();
+			if (CheckValidationProductInput())
+			{
+				string productId = ProductIdInput.Text;
+				string productName = ProductNameInput.Text;
+				string productQuantity = ProductQuantityInput.Text;
+				string productPrice = ProductPriceInput.Text;
 
-			string productId = ProductIdInput.Text;
-			string productName = ProductNameInput.Text;
-			string productQuantity = ProductQuantityInput.Text;
-			string productPrice = ProductPriceInput.Text;
+				Products.Rows.Add(productId, productName, productPrice, productQuantity);
 
-			Products.Rows.Add(productId, productName, productPrice, productQuantity);
-
-			ResetBtn_Click(null, null);
+				ResetBtn_Click(null, null);
+			}
 		}
 
-		void CheckValidationProductInput()
+		bool CheckValidationProductInput()
 		{
 			if (ProductIdInput.Text == "")
 			{
 				MessageBox.Show("Please enter product id");
 				ProductIdInput.Focus();
+				return false;
 			}
 			else if (ProductNameInput.Text == "")
 			{
 				MessageBox.Show("Please enter product name");
 				ProductNameInput.Focus();
+				return false;
 			}
 			else if (ProductPriceInput.Text == "" || !IsNumber(ProductPriceInput.Text))
 			{
 				MessageBox.Show("Please enter right product price");
 				ProductPriceInput.Focus();
+				return false;
 			}
 			else if (ProductQuantityInput.Text == "" || !IsNumber(ProductQuantityInput.Text))
 			{
 				MessageBox.Show("Please enter right product quantity");
 				ProductQuantityInput.Focus();
+				return false;
 			}
+
+			return true;
 		}
 
 		bool IsNumber(string text)
