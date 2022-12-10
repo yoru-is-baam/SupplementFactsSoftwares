@@ -184,7 +184,7 @@
 			this.AddReceiptBtn.Name = "AddReceiptBtn";
 			this.AddReceiptBtn.Size = new System.Drawing.Size(113, 38);
 			this.AddReceiptBtn.TabIndex = 12;
-			this.AddReceiptBtn.Text = "Add Receipt";
+			this.AddReceiptBtn.Text = "Export Receipt";
 			this.AddReceiptBtn.UseVisualStyleBackColor = true;
 			this.AddReceiptBtn.Click += new System.EventHandler(this.AddReceiptBtn_Click);
 			// 

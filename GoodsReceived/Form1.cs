@@ -84,6 +84,7 @@ namespace GoodsReceived
 			if (result == DialogResult.Yes)
 			{
 				Products.Rows.Clear();
+				ResetBtn_Click(null, null);
 			}
 		}
 
