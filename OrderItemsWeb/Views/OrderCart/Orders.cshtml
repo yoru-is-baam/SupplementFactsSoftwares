@@ -1,0 +1,44 @@
+﻿@model IEnumerable<OrderItemsWeb.Models.OrderReceipt>
+
+@{
+	ViewBag.Title = "Orders";
+}
+
+<h2>List Orders</h2>
+<table class="table table-bordered table-hover">
+	<thead>
+		<tr>
+			<th>
+				Order ID
+			</th>
+			<th>
+				Total Quantity
+			</th>
+			<th>
+				Total Price
+			</th>
+			<th>Ordered Date</th>
+			<th>Status</th>
+			<th>Agent Name</th>
+		</tr>
+	</thead>
+	<tbody>
+		@{
+			var agents = ViewBag.Agents as IEnumerable<OrderItemsWeb.Models.Agent>;
+		}
+		@foreach (var order in Model)
+		{
+			var agentName = agents.FirstOrDefault(a => a.AgentID == order.AgentID).AgentName;
+			<tr>
+				<td><a href="/OrderCart/OrderDetail/@order.OrderID">@order.OrderID</a></td>
+				<td>@order.TotalOrderQuantity</td>
+				<td>@String.Format(System.Globalization.CultureInfo.GetCultureInfo("vi-VN"), "{0:c}", @order.TotalOrderPrice)</td>
+				<td>@order.OrderedDate.ToShortDateString()</td>
+				<td>@order.Status</td>
+				<td>@agentName</td>
+			</tr>
+		}
+	</tbody>
+</table>
+@Html.ActionLink("Continuing Order?", "Index", "Products", null, new { @class = "btn btn-primary" })
+

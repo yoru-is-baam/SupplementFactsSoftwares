@@ -13,10 +13,6 @@
 }
 else
 {
-	<div class="form-group">
-		<label for="agents">Agent</label>
-		@Html.DropDownList("AgentName", new SelectList(ViewBag.Agents, "AgentID", "AgentName"), new { @class = "form-control", id = "agents" })
-	</div>
 	using (Html.BeginForm("UpdateOrder", "OrderCart", FormMethod.Post))
 	{
 		<table class="table table-bordered table-hover">
@@ -83,8 +79,6 @@ else
 		@Html.ActionLink("Continuing Order?", "Index", "Products", null, new { @class = "btn btn-primary" })
 		<button type="submit" class="btn btn-success">Update Order</button>
 		<span>|||</span>
-		<button type="button" class="btn btn-warning cash">Cash</button>
-		<button type="button" class="btn btn-info transfer">Transfer</button>
-		<button type="button" class="btn btn-purple momo">Momo</button>
+		@Html.ActionLink("Pay", "ProcessingCash", "OrderCart", null, new { @class = "btn btn-warning" })
 	}
 }

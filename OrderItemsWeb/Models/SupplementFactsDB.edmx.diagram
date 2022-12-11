@@ -11,8 +11,8 @@
         <AssociationConnector Association="SupplementFactsManagementModel.FkIncludeImportedProducts_ProductID" ManuallyRouted="false" />
         <AssociationConnector Association="SupplementFactsManagementModel.FkIncludeImportedProducts_ReceiptID" ManuallyRouted="false" />
         <EntityTypeShape EntityType="SupplementFactsManagementModel.Agent" Width="1.5" PointX="3.375" PointY="5.625" />
-        <EntityTypeShape EntityType="SupplementFactsManagementModel.IncludeOrderProduct" Width="1.5" PointX="7.875" PointY="3.125" />
-        <EntityTypeShape EntityType="SupplementFactsManagementModel.OrderReceipt" Width="1.5" PointX="5.625" PointY="5" />
+        <EntityTypeShape EntityType="SupplementFactsManagementModel.IncludeOrderProduct" Width="1.5" PointX="7.875" PointY="4.25" />
+        <EntityTypeShape EntityType="SupplementFactsManagementModel.OrderReceipt" Width="1.5" PointX="5.625" PointY="5.125" />
         <AssociationConnector Association="SupplementFactsManagementModel.FkOrderReceipt_AgentID" />
         <AssociationConnector Association="SupplementFactsManagementModel.FkIncludeOrderProducts_OrderID" />
         <AssociationConnector Association="SupplementFactsManagementModel.FkIncludeOrderProducts_ProductID" />

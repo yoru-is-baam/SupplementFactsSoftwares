@@ -16,7 +16,7 @@ namespace OrderItemsWeb.Models
     {
         public int TotalProductQuantity { get; set; }
         public int TotalProductPrice { get; set; }
-        public string OrderID { get; set; }
+        public int OrderID { get; set; }
         public string ProductID { get; set; }
     
         public virtual OrderReceipt OrderReceipt { get; set; }

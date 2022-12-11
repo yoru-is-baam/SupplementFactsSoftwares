@@ -20,7 +20,7 @@ namespace OrderItemsWeb.Models
             this.IncludeOrderProducts = new HashSet<IncludeOrderProduct>();
         }
     
-        public string OrderID { get; set; }
+        public int OrderID { get; set; }
         public int TotalOrderPrice { get; set; }
         public int TotalOrderQuantity { get; set; }
         public System.DateTime OrderedDate { get; set; }

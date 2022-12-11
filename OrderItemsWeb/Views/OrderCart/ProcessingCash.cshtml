@@ -1,0 +1,17 @@
+﻿
+@{
+	ViewBag.Title = "ProcessingCash";
+}
+
+<h2>Choose your agent name</h2>
+@using (Html.BeginForm("Cash", "OrderCart", FormMethod.Post))
+{
+	<div class="form-group">
+		<label for="agents">Agent</label>
+		@Html.DropDownList("AgentName", new SelectList(ViewBag.Agents, "AgentID", "AgentName"), new { @class = "form-control", id = "agents" })
+	</div>
+	<button type="submit" class="btn btn-success">Cash</button>
+	<button type="button" class="btn btn-info transfer">Transfer</button>
+	<button type="button" class="btn btn-purple momo">Momo</button>
+}
+

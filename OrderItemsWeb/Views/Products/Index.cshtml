@@ -23,20 +23,23 @@
 	<tbody>
 		@foreach (var item in Model)
 		{
-			<tr>
-				<td>
-					@item.ProductName
-				</td>
-				<td>
-					@item.ProductQuantity remaining
-				</td>
-				<td>
-					@String.Format(System.Globalization.CultureInfo.GetCultureInfo("vi-VN"), "{0:c}", @item.ProductPrice)
-				</td>
-				<td>
-					@Html.ActionLink("Add to cart", "OrderNow", "OrderCart", new { id = item.ProductID }, new { @class = "btn btn-primary" })
-				</td>
-			</tr>
+			if (item.ProductQuantity > 0)
+			{
+				<tr>
+					<td>
+						@item.ProductName
+					</td>
+					<td>
+						@item.ProductQuantity remaining
+					</td>
+					<td>
+						@String.Format(System.Globalization.CultureInfo.GetCultureInfo("vi-VN"), "{0:c}", @item.ProductPrice)
+					</td>
+					<td>
+						@Html.ActionLink("Add to cart", "OrderNow", "OrderCart", new { id = item.ProductID }, new { @class = "btn btn-primary" })
+					</td>
+				</tr>
+			}
 		}
 	</tbody>
 </table>

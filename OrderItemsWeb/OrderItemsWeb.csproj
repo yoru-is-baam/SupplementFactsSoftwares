@@ -126,8 +126,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\IncludeOrderProductsController.cs" />
-    <Compile Include="Controllers\OrderReceiptsController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\OrderCartController.cs" />
     <Compile Include="Models\Agent.cs">
@@ -228,18 +226,11 @@
     <Content Include="Models\SupplementFactsDB.edmx.diagram">
       <DependentUpon>SupplementFactsDB.edmx</DependentUpon>
     </Content>
-    <Content Include="Views\OrderReceipts\Create.cshtml" />
-    <Content Include="Views\OrderReceipts\Delete.cshtml" />
-    <Content Include="Views\OrderReceipts\Details.cshtml" />
-    <Content Include="Views\OrderReceipts\Edit.cshtml" />
-    <Content Include="Views\OrderReceipts\Index.cshtml" />
-    <Content Include="Views\IncludeOrderProducts\Create.cshtml" />
-    <Content Include="Views\IncludeOrderProducts\Delete.cshtml" />
-    <Content Include="Views\IncludeOrderProducts\Details.cshtml" />
-    <Content Include="Views\IncludeOrderProducts\Edit.cshtml" />
-    <Content Include="Views\IncludeOrderProducts\Index.cshtml" />
     <Content Include="Views\Products\Index.cshtml" />
     <Content Include="Views\OrderCart\Index.cshtml" />
+    <Content Include="Views\OrderCart\Orders.cshtml" />
+    <Content Include="Views\OrderCart\ProcessingCash.cshtml" />
+    <Content Include="Views\OrderCart\OrderDetail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

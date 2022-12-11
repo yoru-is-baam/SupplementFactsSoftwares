@@ -29,14 +29,14 @@
           </Key>
           <Property Name="TotalProductQuantity" Type="int" Nullable="false" />
           <Property Name="TotalProductPrice" Type="int" Nullable="false" />
-          <Property Name="OrderID" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="OrderID" Type="int" Nullable="false" />
           <Property Name="ProductID" Type="varchar" MaxLength="10" Nullable="false" />
         </EntityType>
         <EntityType Name="OrderReceipt">
           <Key>
             <PropertyRef Name="OrderID" />
           </Key>
-          <Property Name="OrderID" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="OrderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TotalOrderPrice" Type="int" Nullable="false" />
           <Property Name="TotalOrderQuantity" Type="int" Nullable="false" />
           <Property Name="OrderedDate" Type="date" Nullable="false" />
@@ -287,7 +287,7 @@
           </Key>
           <Property Name="TotalProductQuantity" Type="Int32" Nullable="false" />
           <Property Name="TotalProductPrice" Type="Int32" Nullable="false" />
-          <Property Name="OrderID" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="OrderID" Type="Int32" Nullable="false" />
           <Property Name="ProductID" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="OrderReceipt" Relationship="SupplementFactsManagementModel.FkIncludeOrderProducts_OrderID" FromRole="IncludeOrderProduct" ToRole="OrderReceipt" />
           <NavigationProperty Name="Product" Relationship="SupplementFactsManagementModel.FkIncludeOrderProducts_ProductID" FromRole="IncludeOrderProduct" ToRole="Product" />
@@ -296,7 +296,7 @@
           <Key>
             <PropertyRef Name="OrderID" />
           </Key>
-          <Property Name="OrderID" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="OrderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TotalOrderPrice" Type="Int32" Nullable="false" />
           <Property Name="TotalOrderQuantity" Type="Int32" Nullable="false" />
           <Property Name="OrderedDate" Type="DateTime" Nullable="false" Precision="0" />

@@ -16,13 +16,6 @@ namespace OrderItemsWeb.Controllers
 		// GET: OrderCart
 		public ActionResult Index()
 		{
-			var agents = db.Agents.ToList();
-
-			if (agents != null)
-			{
-				ViewBag.Agents = agents;
-			}
-
 			return View();
 		}
 
@@ -114,6 +107,78 @@ namespace OrderItemsWeb.Controllers
 			Session[cart] = carts;
 
 			return RedirectToAction("Index");
+		}
+
+		public ActionResult ProcessingCash()
+		{
+			var agents = db.Agents.ToList();
+
+			if (agents != null)
+			{
+				ViewBag.Agents = agents;
+			}
+
+			return View();
+		}
+
+		public ActionResult Cash(FormCollection formCollection)
+		{
+			List<Cart> carts = (List<Cart>)Session[cart];
+
+			// save order receipt
+			int totalPrice = carts.Sum(c => c.Quantity * c.Product.ProductPrice);
+			int totalQuantity = carts.Sum(c => c.Quantity);
+			DateTime today = DateTime.Now;
+			string agentId = formCollection["AgentName"];
+
+			OrderReceipt order = new OrderReceipt()
+			{
+				TotalOrderPrice = totalPrice,
+				TotalOrderQuantity = totalQuantity,
+				OrderedDate = today,
+				Status = "Transferring",
+				AgentID = agentId
+			};
+
+			db.OrderReceipts.Add(order);
+			db.SaveChanges();
+
+			// save order detail receipt
+			for (int i = 0; i < carts.Count; i++)
+			{
+				IncludeOrderProduct detailOrder = new IncludeOrderProduct()
+				{
+					OrderID = order.OrderID,
+					ProductID = carts[i].Product.ProductID,
+					TotalProductPrice = carts[i].Product.ProductPrice * carts[i].Quantity,
+					TotalProductQuantity = carts[i].Quantity
+				};
+
+				db.IncludeOrderProducts.Add(detailOrder);
+				db.SaveChanges();
+			}
+			
+			Session.Remove(cart);
+
+			return RedirectToAction("Orders");
+		}
+
+		public ActionResult Orders()
+		{
+			var orders = db.OrderReceipts.ToList();
+
+			ViewBag.Agents = db.Agents.ToList();
+
+			return View(orders);
+		}
+
+		public ActionResult OrderDetail(int id)
+		{
+			var orderDetail = db.IncludeOrderProducts.Where(o => o.OrderID == id).ToList();
+
+			ViewBag.Products = db.Products.ToList();
+
+			return View(orderDetail);
 		}
 	}
 }
