@@ -143,3 +143,35 @@ VALUES
 ('A005', 'Super Green'),
 ('A006', 'Super Purple'),
 ('A007', 'Supa Hot Fire')
+
+-- Update product when agent order
+GO
+CREATE TRIGGER trIncludeOrderProductsUpdateForProduct
+ON IncludeOrderProducts
+AFTER INSERT
+AS
+	BEGIN
+		DECLARE @productID VARCHAR(20)
+		DECLARE @totalProductQuantity INT
+		
+		DECLARE cursor_product CURSOR
+		FOR
+			SELECT ProductID, TotalProductQuantity FROM INSERTED
+
+		OPEN cursor_product;
+
+		FETCH NEXT FROM cursor_product INTO @productID, @totalProductQuantity
+
+		WHILE @@fetch_status = 0
+			BEGIN
+				UPDATE Product
+				SET ProductQuantity = ProductQuantity - @totalProductQuantity
+				WHERE ProductID = @productID
+
+				FETCH NEXT FROM cursor_product INTO @productID, @totalProductQuantity
+			END
+
+		CLOSE cursor_product;
+		DEALLOCATE cursor_product;
+    END
+GO
