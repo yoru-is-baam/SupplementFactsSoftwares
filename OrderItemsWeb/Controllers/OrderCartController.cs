@@ -136,7 +136,7 @@ namespace OrderItemsWeb.Controllers
 				TotalOrderPrice = totalPrice,
 				TotalOrderQuantity = totalQuantity,
 				OrderedDate = today,
-				Status = "Transferring",
+				Status = "Unpaid",
 				AgentID = agentId
 			};
 
