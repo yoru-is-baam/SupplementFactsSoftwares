@@ -121,9 +121,6 @@ BEGIN
 END;
 GO
 
--- Reset warehouse receipt back 1
-DBCC CHECKIDENT (WarehouseReceipt, RESEED, 0)
-
 INSERT INTO Product
 VALUES
 ('P001', 'Immune++', 39000, 500),
