@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderItemsWeb", "OrderItems
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoodsDeliveryNote", "GoodsDeliveryNote\GoodsDeliveryNote.csproj", "{9A19564E-FBDF-4657-959F-D1E1E09095F3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoodsStatistics", "GoodsStatistics\GoodsStatistics.csproj", "{397F0339-6F7A-4327-B6BF-99B0E2C70E76}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{9A19564E-FBDF-4657-959F-D1E1E09095F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9A19564E-FBDF-4657-959F-D1E1E09095F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9A19564E-FBDF-4657-959F-D1E1E09095F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{397F0339-6F7A-4327-B6BF-99B0E2C70E76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{397F0339-6F7A-4327-B6BF-99B0E2C70E76}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{397F0339-6F7A-4327-B6BF-99B0E2C70E76}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{397F0339-6F7A-4327-B6BF-99B0E2C70E76}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

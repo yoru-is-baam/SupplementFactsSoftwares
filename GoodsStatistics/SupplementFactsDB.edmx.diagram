@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="94f5b9005e644326bb8b4b86aca696f5" Name="Diagram1">
+        <EntityTypeShape EntityType="SupplementFactsManagementModel.Agent" Width="1.5" PointX="1.5" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SupplementFactsManagementModel.IncludeImportedProduct" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SupplementFactsManagementModel.IncludeOrderProduct" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SupplementFactsManagementModel.OrderReceipt" Width="1.5" PointX="0.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SupplementFactsManagementModel.Product" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SupplementFactsManagementModel.WarehouseReceipt" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
+        <AssociationConnector Association="SupplementFactsManagementModel.FkOrderReceipt_AgentID" ManuallyRouted="false" />
+        <AssociationConnector Association="SupplementFactsManagementModel.FkIncludeImportedProducts_ProductID" ManuallyRouted="false" />
+        <AssociationConnector Association="SupplementFactsManagementModel.FkIncludeImportedProducts_ReceiptID" ManuallyRouted="false" />
+        <AssociationConnector Association="SupplementFactsManagementModel.FkIncludeOrderProducts_OrderID" ManuallyRouted="false" />
+        <AssociationConnector Association="SupplementFactsManagementModel.FkIncludeOrderProducts_ProductID" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

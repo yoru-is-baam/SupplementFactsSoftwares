@@ -175,3 +175,51 @@ AS
 		DEALLOCATE cursor_product;
     END
 GO
+
+GO
+CREATE FUNCTION fnProductsIn()
+RETURNS TABLE 
+AS
+	RETURN (
+		SELECT ProductID, SUM(TotalProductPrice) AS TotalProductPrice, SUM(TotalProductQuantity) AS TotalProductQuantity 
+		FROM IncludeImportedProducts
+		GROUP BY ProductID
+	)
+GO
+
+GO
+CREATE FUNCTION fnProductsOut()
+RETURNS TABLE 
+AS
+	RETURN (
+		SELECT ProductID, SUM(TotalProductPrice) AS TotalProductPrice, SUM(TotalProductQuantity) AS TotalProductQuantity 
+		FROM IncludeOrderProducts
+		GROUP BY ProductID
+	)
+GO
+
+GO
+CREATE FUNCTION fnBestSellingProduct()
+RETURNS TABLE 
+AS
+	RETURN (
+		SELECT TOP 1 TotalProductQuantity, ProductID, TotalProductPrice FROM 
+		(
+			SELECT ProductID, SUM(TotalProductPrice) AS TotalProductPrice, SUM(TotalProductQuantity) AS TotalProductQuantity 
+			FROM IncludeOrderProducts
+			GROUP BY ProductID
+		) Best_Selling_Product
+		ORDER BY TotalProductQuantity DESC
+	)
+GO
+
+GO
+CREATE FUNCTION fnRevenueEachMonth()
+RETURNS TABLE
+AS
+	RETURN (
+		SELECT MONTH(OrderedDate) AS OrderedMonth, SUM(TotalOrderPrice) AS Revenue 
+		FROM OrderReceipt
+		GROUP BY MONTH(OrderedDate)
+	)
+GO
